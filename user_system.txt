@@ -1,0 +1,276 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `candidates` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `organization_id` int(11) NOT NULL,
+  `position` enum('President','VP Internal','VP External','Secretary','PRO','Treasurer','Auditor') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `candidates` (`id`, `user_id`, `organization_id`, `position`, `created_at`) VALUES
+(2, 13, 2, 'President', '2025-07-19 12:55:09'),
+(3, 15, 2, 'President', '2025-07-19 13:15:52'),
+(4, 13, 1, 'President', '2025-07-19 13:55:38'),
+(5, 14, 1, 'President', '2025-07-19 13:55:38'),
+(6, 15, 1, 'President', '2025-07-19 13:55:38'),
+(7, 14, 1, 'VP Internal', '2025-07-19 13:55:38'),
+(8, 15, 1, 'VP Internal', '2025-07-19 13:55:38'),
+(9, 13, 1, 'VP External', '2025-07-19 13:55:38'),
+(10, 14, 1, 'Secretary', '2025-07-19 13:55:38'),
+(11, 13, 1, 'PRO', '2025-07-19 13:55:38');
+
+
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `action` varchar(20) DEFAULT NULL,
+  `role` varchar(10) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `logs` (`id`, `username`, `action`, `role`, `timestamp`) VALUES
+(1, 'admin', 'register', 'admin', '2025-07-13 18:46:28'),
+(2, 'admin', 'login', 'admin', '2025-07-13 18:46:35'),
+(3, 'lalove', 'register', 'user', '2025-07-13 18:47:51'),
+(4, 'admin', 'login', 'admin', '2025-07-13 18:51:30'),
+(5, 'admin', 'login', 'admin', '2025-07-13 19:14:43'),
+(6, 'admin', 'login', 'admin', '2025-07-13 19:14:56'),
+(7, 'admin', 'login', 'admin', '2025-07-13 19:24:25'),
+(8, 'admin', 'login', 'admin', '2025-07-13 20:29:07'),
+(9, 'admin', 'login', 'admin', '2025-07-13 20:33:51'),
+(10, 'admin1', 'login', 'admin', '2025-07-13 20:36:26'),
+(11, 'user', 'register', 'user', '2025-07-13 20:52:15'),
+(12, 'user', 'login', 'user', '2025-07-13 20:52:20'),
+(13, 'admin1', 'login', 'admin', '2025-07-13 20:53:00'),
+(14, 'admin', 'register', 'admin', '2025-07-13 20:59:45'),
+(15, 'admin', 'login', 'admin', '2025-07-13 20:59:51'),
+(16, 'admin111', 'register', 'admin', '2025-07-13 21:17:43'),
+(17, 'admin111', 'login', 'admin', '2025-07-13 21:18:01'),
+(18, 'admin111', 'login', 'admin', '2025-07-15 07:16:19'),
+(19, 'admin111', 'login', 'admin', '2025-07-15 08:30:16'),
+(20, 'admin111', 'login', 'admin', '2025-07-15 09:08:09'),
+(21, 'admin111', 'login', 'admin', '2025-07-15 09:09:46'),
+(22, 'admin111', 'login', 'admin', '2025-07-15 09:10:06'),
+(23, 'admin111', 'login', 'admin', '2025-07-15 09:10:26'),
+(24, 'admin111', 'login', 'admin', '2025-07-15 11:13:49'),
+(25, 'admin111', 'login', 'admin', '2025-07-15 11:14:36'),
+(26, 'Admin0', 'register', 'user', '2025-07-15 12:21:42'),
+(27, 'Admin0', 'login', 'user', '2025-07-15 12:26:31'),
+(28, 'Admin0', 'login', 'user', '2025-07-15 12:26:35'),
+(29, 'admin0', 'login', 'user', '2025-07-15 12:34:50'),
+(30, 'test', 'register', 'user', '2025-07-15 12:39:09'),
+(31, 'test', 'login', 'user', '2025-07-15 12:39:17'),
+(32, 'admin0', 'login', 'user', '2025-07-15 12:44:44'),
+(33, 'Admin0', 'login', 'user', '2025-07-15 12:45:09'),
+(34, 'Admin0', 'register', 'admin', '2025-07-15 13:26:56'),
+(35, 'Admin0', 'login', 'admin', '2025-07-15 13:27:01'),
+(36, 'Admin0', 'login', 'admin', '2025-07-15 13:28:29'),
+(37, 'admin0', 'login', 'admin', '2025-07-15 13:35:45'),
+(38, 'admin0', 'login', 'admin', '2025-07-15 13:39:44'),
+(39, 'test', 'login', 'user', '2025-07-15 14:24:44'),
+(40, 'admin0', 'login', 'admin', '2025-07-15 14:25:13'),
+(41, 'admin0', 'login', 'admin', '2025-07-15 14:34:52'),
+(42, 'Admin0', 'login', 'admin', '2025-07-17 08:23:59'),
+(43, 'tester', 'register', 'user', '2025-07-17 08:48:09'),
+(44, 'tester', 'login', 'user', '2025-07-17 08:48:13'),
+(45, 'Admin0', 'login', 'admin', '2025-07-17 09:29:47'),
+(46, '232', 'register', 'user', '2025-07-17 10:00:12'),
+(47, 'admin0', 'login', 'admin', '2025-07-17 10:26:51'),
+(48, 'admin0', 'login', 'admin', '2025-07-17 10:38:42'),
+(49, 'tester', 'login', 'user', '2025-07-17 12:04:25'),
+(50, '12312', 'register', 'admin', '2025-07-17 13:43:22'),
+(51, 'tester', 'login', 'user', '2025-07-17 14:23:36'),
+(52, 'admin111', 'login', 'admin', '2025-07-17 14:24:06'),
+(53, 'tester', 'login', 'user', '2025-07-17 14:24:49'),
+(54, 'tester', 'register', 'user', '2025-07-17 18:35:42'),
+(55, 'admin111', 'login', 'admin', '2025-07-18 02:09:30'),
+(56, 'admin111', 'login', 'admin', '2025-07-19 11:26:02'),
+(57, 'user1', 'login', 'user', '2025-07-19 13:13:12'),
+(58, 'user2', 'register', 'user', '2025-07-19 13:15:00'),
+(59, 'admin111', 'login', 'admin', '2025-07-19 13:15:23'),
+(60, 'admin111', 'login', 'admin', '2025-07-19 13:53:56'),
+(61, 'admin111', 'login', 'admin', '2025-07-19 14:24:19'),
+(62, 'admin111', 'login', 'admin', '2025-07-19 14:53:03'),
+(63, 'admin111', 'login', 'admin', '2025-07-19 14:54:11'),
+(64, 'user1', 'login', 'user', '2025-07-19 14:54:55'),
+(65, 'admin111', 'login', 'admin', '2025-07-19 14:55:18'),
+(66, 'admin111', 'login', 'admin', '2025-07-19 14:56:11'),
+(67, 'user1', 'login', 'user', '2025-07-19 15:16:19'),
+(68, 'admin111', 'login', 'admin', '2025-07-19 15:38:55');
+
+CREATE TABLE `organizations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `logo_path` varchar(255) NOT NULL,
+  `is_visible` tinyint(1) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `organizations` (`id`, `name`, `logo_path`, `is_visible`) VALUES
+(1, 'TEC', 'uploads/org_logos/1.png', 1),
+(2, 'AC', 'uploads/org_logos/2.jpg', 1),
+(3, 'TAMBAYAN', 'uploads/org_logos/3.jpg', 1),
+(17, 'ACES', 'uploads/org_logos/5.jpg', 1),
+(18, 'ACM', 'uploads/org_logos/6.png', 1),
+(19, 'SCC', 'uploads/org_logos/Icon_5.jpg', 1),
+(20, 'INNOVATOR', 'uploads/org_logos/4.jpg', 1),
+(21, 'MECHS', 'uploads/org_logos/Icon_9.jpg', 1),
+(22, 'JPCS', 'uploads/org_logos/Icon_10.png', 1),
+(23, 'CPEO', 'uploads/org_logos/Icon_11.png', 1),
+(24, 'TEAMS', 'uploads/org_logos/Icon_12.jpg', 1),
+(25, 'AITS', 'uploads/org_logos/Icon_7.jpg', 1);
+
+
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('admin','user') NOT NULL DEFAULT 'user',
+  `profile_pic` varchar(255) DEFAULT 'default.jpg',
+  `student_number` varchar(20) DEFAULT NULL,
+  `email` varchar(120) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
+  `course` varchar(80) DEFAULT NULL,
+  `specialization` varchar(80) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `org_member` tinyint(1) DEFAULT 0,
+  `organizations` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `users` (`id`, `full_name`, `username`, `password`, `role`, `profile_pic`, `student_number`, `email`, `phone_number`, `course`, `specialization`, `dob`, `org_member`, `organizations`) VALUES
+(5, 'Jerick Villanueva SanDiegoe', 'admin111', '$2y$10$2Ltro3TgH9fqocUB5pr0w.XqLw3GtOFS1UWCJEUCGEL8NM2LvlK7K', 'admin', 'FA10325-00-logo.webp', '213213123', 'sandiegojerick957@gmail.com', '09672912075', 'BSIT', 'WMA', '2025-07-03', 0, ''),
+(13, 'San Diego, Jerick V.', 'tester', '$2y$10$/bq.zAd.ADlsD4IoppXopuVe3u29Lmd2jwj2Eeh.p5nBzaJOrP.pi', 'user', 'default.jpg', '123213', 'outburst04444@gmail.com', '01234567812', 'BSIT', 'WMA', '2025-07-03', 1, '1,2'),
+(14, 'sadasdasdsad', 'TESTT', '$2y$10$H8MdclE2m6lKMMpkZ8Jk7Oxu86ujNwaUq9vwE4liovfgdOQOzB7KG', 'user', 'default.jpg', '234234234', 'elaizacabasan100@gmail.com', '123123', 'BSIT', 'WMA', '2025-07-04', 1, '1,2,3'),
+(15, 'hatdog sa ref', 'user111', '$2y$10$7gZxG1vQnXwRRkudHPPOqOf2sO37nvQh4HE4/45/FCic1RNRQxzQK', 'user', 'Icon_5.jpg', '4564564', '123123123@gmail.com', '09672912075', 'BSIT', 'WMA', '2025-07-10', 1, 'ACEasdasddasdasdasdasdasS'),
+(16, 'sadasdasdsad', 'user2', '$2y$10$cfwTVOHBGbAmexwuxWI4SexLkfmtO4yzr.IUKy2XIDLx9eN4EmCgi', 'user', 'default.jpg', '456783', 'cabasanelaiza@yahoo.com', '4324234324', 'BSIT', 'WMA', '2025-07-14', 1, '1,2');
+
+CREATE TABLE `user_organizations` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `user_organizations` (`id`, `user_id`, `org_id`) VALUES
+(2, 13, 1),
+(3, 13, 2),
+(5, 14, 1),
+(6, 14, 2),
+(8, 15, 1),
+(9, 15, 2),
+(10, 16, 1),
+(11, 16, 2);
+
+-- Indexes for table `candidates`
+--
+ALTER TABLE `candidates`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `organization_id` (`organization_id`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `organizations`
+--
+ALTER TABLE `organizations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `student_number` (`student_number`);
+
+--
+-- Indexes for table `user_organizations`
+--
+ALTER TABLE `user_organizations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `org_id` (`org_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `candidates`
+--
+ALTER TABLE `candidates`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT for table `organizations`
+--
+ALTER TABLE `organizations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `user_organizations`
+--
+ALTER TABLE `user_organizations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `candidates`
+--
+ALTER TABLE `candidates`
+  ADD CONSTRAINT `candidates_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `candidates_ibfk_2` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`id`);
+
+--
+-- Constraints for table `user_organizations`
+--
+ALTER TABLE `user_organizations`
+  ADD CONSTRAINT `user_organizations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_organizations_ibfk_2` FOREIGN KEY (`org_id`) REFERENCES `organizations` (`id`) ON DELETE CASCADE;
+COMMIT;
+
+
+CREATE TABLE `votes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `candidate_id` int(11) NOT NULL,
+  `position` varchar(100) NOT NULL,
+  `organization_id` int(11) NOT NULL,
+  `voted_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_vote` (`user_id`, `position`),
+  KEY `candidate_id` (`candidate_id`),
+  CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `vote_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `end_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

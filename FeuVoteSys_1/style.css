@@ -1,0 +1,994 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    color: #2c3e50;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form styles */
+form { /* Inside Edit Profile */
+    background: #fff;
+    padding: 25px;
+    width: 320px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+.right .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 16px;
+    margin-bottom: -20px;
+}
+
+/* Headings & Links */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.right h3 {
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin-top: -12px;
+    color: var(--color-muted);
+}
+
+.right .bi-columns-gap {
+    margin-left: 20px;
+}
+
+.right .bi-people-fill {
+    margin-left: 20px;
+}
+
+.right .bi-check2-square{
+    margin-left: 20px;
+}
+
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.resume-container a {
+    color: #111;
+    font-size: 14px;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.resume-container a:hover {
+    color: #000;
+}
+
+/* Profile Settings */
+#profileSettings {
+    position: fixed;
+    top: 80px;
+    left: 250px;
+    width: calc(100% - 250px);
+    height: calc(100% - 80px);
+    background: #f9f9f9;
+    z-index: 15;
+    padding: 20px;
+    padding-left: 20px;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+
+#profileSettings .profile-card.profile-grid{
+    display:grid !important;   /* force grid layout */
+    max-width:1000px !important;
+}
+
+#profileSettings .profile-card { /* Profile Card */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#profileSettings form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#profileSettings form input {
+    margin-bottom: 10px;
+}
+
+#profileSettings form label {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+#profileSettings label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+#profileSettings input[type="text"],
+#profileSettings input[type="password"],
+#profileSettings input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+#profileSettings form button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#profileSettings form button:hover {
+    background-color: #2980b9;
+}
+
+#profileSettings img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#profileSettings h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    text-align: center;
+}
+
+/* Layout */
+.container-layout {
+      flex-grow: 1;
+    height: 100vh;
+    padding: 0 50px;
+    background: #f4f6fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.resume-container {
+    flex-grow: 1;
+    height: 100vh;
+    padding: 0 50px;
+    background: #f4f6fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.resume-container h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.resume-container p {
+    font-size: 20px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    
+    bottom: 28px;
+    width: 90px;
+    display: flex;
+    transition: width 0.4s ease;
+    z-index: 999;
+     height: 100%;
+    border-right: 0px solid #6A9485;
+}
+
+.sidebar:hover {
+    width: 340px;
+}
+
+.left {
+    width: 80px;
+    background: #6A9485;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    gap: 20px;
+    border-right: 1px solid #eee;
+}
+
+.left img { /* Profile Picture sidebar*/
+    margin-top: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: center;
+    object-fit: cover;
+}
+
+.left button {
+    background: transparent;
+    border: none;
+    color: #444;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.left button:hover {
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Right Nav */
+.right {
+    flex-grow: 1;
+    width: 0;
+    transition: width 0.4s ease;
+    overflow: hidden;
+    background: var(--color-bg);
+}
+
+.sidebar:hover .right {
+    width: 220px;
+}
+
+.right button {
+    padding: 0 15px;
+    height: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+}
+
+.right button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+}
+
+.right button i {
+    color: #666;
+}
+
+.right button:hover i {
+    color: #000;
+}
+
+.right button span {
+    overflow: hidden;
+}
+
+/* Nav visibility */
+.right nav {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.sidebar:hover .right nav {
+    opacity: 1;
+    visibility: visible;
+}
+
+.submenu li {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 12px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.submenu {
+    margin-bottom: -13px;
+}
+
+.submenu li:hover {
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.submenu .badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Hide sidebar text by default */
+.sidebar span,
+.submenu {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar:hover span,
+.sidebar:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .container-layout {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        bottom: unset;
+        border-bottom: 1px solid #ccc;
+        border-right: none;
+        z-index: 1000;
+        position: fixed;
+    }
+
+    .left {
+        flex-direction: row;
+        width: 100%;
+        padding: 10px;
+        justify-content: space-around;
+        border-right: none;
+    }
+
+    .right,
+    .right-inner {
+        display: none;
+    }
+
+    .resume-container {
+        padding: 20px;
+        height: auto;
+        justify-content: flex-start;
+    }
+
+    #profileSettings {
+        left: 100px;;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        position: relative;
+    }
+
+    #profileSettings .profile-card {
+        padding: 20px;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    #profileSettings form button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    #profileSettings h2 {
+        font-size: 20px;
+    }
+
+    #profileSettings img {
+        width: 100px;
+        height: 100px;
+    }
+}
+.auth-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('FEU-IT.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-form input, 
+.auth-form select {
+    margin-bottom: 12px;
+    padding: 12px;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.auth-form button {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.auth-form button:hover {
+    background: #2980b9;
+}
+
+.system-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.system-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.success-text {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* ── Registration-page overrides ─────────────────────────────────────────── */
+
+
+
+/* 2 ▸ slim top-bar and pin it to the top edge */
+.topbar{
+    position:fixed; top:0; left:0; right:0;
+    height:60px;
+    background:#ffffff;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 24px;
+    z-index:1000;
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.topbar h1{margin:0;font-size:20px;font-weight:700;color:#2c3e50;}
+.vote-btn{background:#000;color:#fff;border:none;border-radius:25px;padding:6px 24px;font-weight:600;cursor:pointer}
+
+/* 3 ▸ let the hero section fill the screen under the fixed header */
+.hero-green{
+    min-height:calc(100vh - 60px);  /* subtract header height             */
+    padding:120px 0 60px;           /* push content below the header      */
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+
+/* 4 ▸ make the form grid fluid instead of 3 hard columns */
+.signup-grid{
+    display:grid; gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.full-width {
+    grid-column: 1 / -1;
+}
+@media(max-width:600px){
+    .signup-grid{grid-template-columns:1fr;}     /* full-width on phones */
+}
+
+/* 5 ▸ organisation box spans 100 % and doesn’t clamp other fields */
+.org-box{
+    width:100%; max-width:800px;
+    margin:3rem auto 0;
+    background:rgba(255,255,255,.08);
+    border-radius:12px; padding:2rem;
+}
+
+/* (optional) nicer inputs */
+.signup-grid input,
+.signup-grid select{
+    background:#ffffff; color:#2c3e50;
+    border:none; border-radius:25px; padding:14px 18px; font-size:14px;
+}
+/* ─── REGISTRATION PAGE QUICK‑PATCH ───────────────────────────────────────── */
+
+/* 0️⃣  Use a body class on register.php:  <body class="register-page"> */
+.register-page{
+    margin:0;
+    display:block;          /* override the old flex‑center rule          */
+    background:#5f7f72;
+    font-family:'Inter',sans-serif;
+    color:#fff;
+    
+}
+
+/* 1️⃣  Header / Vote pill -------------------------------------------------- */
+.topbar{
+    position:fixed; inset:0 auto auto 0;     /* stick to top */
+    height:60px; width:100%;
+    background:#fff;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 24px;
+    z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.vote-btn{
+    display:inline-block;                 /* kill the full‑width block */
+    background:#000; color:#fff;
+    border:none; border-radius:24px;
+    padding:6px 24px; font-weight:600;
+    cursor:pointer;
+}
+
+/* 2️⃣  Hero wrapper -------------------------------------------------------- */
+.hero-green{
+    /* 60px header + 40px bottom breathing space */
+    min-height:calc(100vh - 60px);
+    padding:100px 24px 40px;
+    text-align:center;
+    display:flex; flex-direction:column; align-items:center;
+}
+
+/* 3️⃣  Container that holds the form & tagline ---------------------------- */
+.register-container{
+    width:100%;
+    max-width:1100px;            /* 3× 260px cols + gaps */
+    margin:0 auto;               /* centered */
+    background:transparent;      /* kill the white box */
+}
+
+/* 4️⃣  Form grid that REFLOWS nicely -------------------------------------- */
+.register-form{
+    display:grid;
+    gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+@media (max-width:600px){
+    .register-form{ grid-template-columns:1fr; }
+}
+
+/* 5️⃣  Inputs get the modern pill style ----------------------------------- */
+.register-form input,
+.register-form select{
+    background:#fff; color:#2c3e50;
+    border:none; border-radius:25px;
+    padding:14px 18px; font-size:14px;
+    width:100%;
+}
+
+/* 6️⃣  Org section toggles ------------------------------------------------- */
+.org-section{ grid-column:1/-1; margin-top:10px; }
+#orgOptions {
+    display:none; margin-top:14px;
+    background:rgba(0,0,0,.05);
+    padding:16px; border-radius:12px;
+}
+button[type="submit"]{
+    grid-column:1/-1;         /* full width of grid */
+    margin-top:20px;
+    background:#3498db; color:#fff;
+    border:none; border-radius:25px;
+    padding:14px; font-size:16px; font-weight:700;
+    cursor:pointer;
+}
+button[type="submit"]:hover{ background:#2980b9; }
+/* ===== REGISTRATION PAGE FINAL PATCH ===== */
+
+/* 👉  keep the VOTE pill to its natural size */
+.vote-btn{
+    width:auto !important;       /* override button{width:100%} */
+    display:inline-block;
+}
+
+/* 👉  let the registration form expand and show the grid */
+.register-form{
+    width:100% !important;       /* override form{width:320px}  */
+    background:transparent !important;  /* kill the white box   */
+}
+
+/* keep the original .green-btn definition or add it here */
+/* === final centering tweaks ==================================== */
+.full-width         { grid-column: 1 / -1; }          /* Confirm‑PW row */
+
+.org-box{                                           /* centre the card */
+    grid-column: 1 / -1;
+    justify-self: center;     /* keeps card in the middle of the grid   */
+    text-align: center;       /* centre Yes/No + checkboxes             */
+    max-width: 800px;
+    width: 100%;
+    margin: 24px auto 0;
+    background: rgba(255,255,255,.08);
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.org-box label{ display:inline-block; margin:4px 12px; }  /* tidy rows */
+button[type="submit"]{ justify-self:center; margin-top:24px; }
+/* === keep checkbox list neatly inside card ======================== */
+#orgOptions{
+    display:flex;               /* row layout */
+    flex-wrap:wrap;             /* wrap onto new lines */
+    justify-content:center;     /* centred within the card */
+    gap:10px 24px;              /* row/column spacing */
+}
+
+#orgOptions label{
+    display:inline-flex;        /* keep checkbox + text together */
+    align-items:center;
+    font-weight:500;
+}
+
+/* extra bottom padding so nothing feels cut off */
+.hero-green{ padding-bottom:80px; }
+/* === Sign‑Up pill: final fix ==================================== */
+button[type="submit"]{
+    width: auto !important;      /* override the 100 % rule */
+    grid-column: 1 / -1;         /* stay on its own row     */
+    justify-self: center;        /* horizontally centred    */
+    padding: 14px 40px;
+    border-radius: 25px;
+    margin-top: 24px;
+}
+
+/* give the hero a little more breathing room at the bottom */
+.hero-green{ padding-bottom: 120px; }
+
+/* === keep whole page green on the register screen =================== */
+body.register-page,
+html {        /* html added so even root background is green */
+    background: #5f7f72 !important;
+}
+
+/* hero-green no longer needs huge bottom padding — let content push it */
+.hero-green{
+    padding: 120px 24px 60px;   /* top 120 = clear fixed header, bottom 60 */
+}
+
+/* Sign‑Up pill stays centred and never stretches */
+button[type="submit"]{
+    width: auto !important;
+    max-width: 320px;
+    padding: 14px 40px;
+    border-radius: 25px;
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 24px;
+}
+/* === LOGIN‑PAGE overrides ============================================ */
+.login-page{
+    margin:0;
+    display:block !important;    /* cancel the flex‑centering */
+    background:#5f7f72;          /* full‑width green backdrop */
+}
+
+/* make sure the split wrapper fills the width */
+.split-wrapper{ width:100%; }
+
+/* keep the login card a nice size on wide screens */
+.auth-form{
+    width:100%;
+    max-width:400px;
+    background:rgba(255,255,255,.95);
+    padding:40px 32px;
+    border-radius:12px;
+}
+
+/* === login page image background on right half ==================== */
+.login-page .right-pane{
+    position:relative;           /* allows overlay if we ever need it */
+    flex:1;
+    background:url('FEU-IT.jpg') center/cover no-repeat;
+    display:flex; justify-content:center; align-items:center;
+}
+
+/* keep the white login card legible on busy images */
+.login-page .auth-form{
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(4px);   /* optional glass‑morphism */
+    border-radius:16px;
+    padding:40px 32px;
+}
+
+/* on small screens we still stack vertically, so kill the bg image */
+@media(max-width:860px){
+    .login-page .right-pane{
+        background:none;
+        padding:60px 0;
+    }
+}
+
+/* -------------  original contents you already had  ----------------- */
+/* … (leave everything above unchanged) …                              */
+/* ------------------------------------------------------------------- */
+
+/* === Dashboard – profile edit grid (APPENDED) ======================= */
+.profile-grid{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:32px;
+    margin-left: 100px;
+    background:#fff;
+    border-radius:16px;
+    padding:32px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+    max-width:1000px;width:100%;
+}
+.avatar-block{
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.avatar-block img{
+    width:140px;height:140px;border-radius:50%;
+    object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.15);
+    margin-bottom:12px;
+}
+.avatar-block h3{margin:0;font-size:20px;font-weight:700;}
+.avatar-block p {margin:4px 0 0;font-size:14px;color:#556}
+
+/* edit form grid */
+.edit-grid{
+    display:grid;gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.edit-grid input,
+.edit-grid select{
+    padding:14px 18px;border-radius:25px;
+    border:1px solid #ccc;font-size:14px;width:100%;
+}
+.full-span{grid-column:1/-1;}
+
+.org-box{
+    flex-wrap:wrap;gap:10px 24px;
+    background:rgba(0,0,0,.05);
+    padding:16px;border-radius:12px;
+}
+.org-box label{display:inline-flex;align-items:center;font-weight:500;}
+
+.file-label{font-size:14px;font-weight:600;color:#333;cursor:pointer;}
+.file-label input{display:none;}
+
+.save-btn{
+    background:#3498db;color:#fff;font-weight:700;
+    border:none;border-radius:25px;padding:14px;cursor:pointer;
+}
+.save-btn:hover{background:#2980b9;}
+
+@media(max-width:800px){
+    .profile-grid{grid-template-columns:1fr;gap:24px;}
+}
+
+/* === Make the Edit‑Profile form use the 3‑column grid =============== */
+#profileSettings form.edit-grid{
+    display:grid !important;                /* kill the old flex‑column  */
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+    width:100%      !important;             /* override form{width:320px} */
+    background:transparent !important;      /* remove white box          */
+    padding:0;                              
+}
+
+/* inputs already have pill styling; keep full‑row items tidy */
+#profileSettings .full-span{ grid-column:1 / -1; }
+
+/* === Align “Yes / No” radio row in profile editor =================== */
+.org-toggle{
+    display:flex;               /* lay items out in a single row       */
+    align-items:center;         /* vertically centre dot + text        */
+    gap:18px;                   /* space between the three labels      */
+    font-weight:600;            /* same weight as other form labels    */
+    font-size:14px;
+}
+.org-toggle label{
+    display:flex;               /* keep dot and word side‑by‑side      */
+    align-items:center;
+    gap:6px;                    /* little space between dot & text     */
+    margin:0;
+}
+.dashboard-header {
+    background-color: #2c3e50; /* example: lighter version of your side nav */
+    color: #fff;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+}
+.org-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.org-box {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.org-box img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+}
+
+.org-box button {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.sidenav {
+    width: 250px; /* or your existing width */
+    background-color: #1a252f; /* your side nav color */
+    color: white;
+    padding: 20px;
+}
+
+.main-content {
+    margin-left: 220px; /* width of sidebar */
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+
+.dashboard-header {
+    background-color: #34495e; /* Slightly lighter than sidebar */
+    color: white;
+    padding: 12px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;               /* Remove any top/left margins */
+    border-radius: 0 0 8px 0; /* Rounded bottom-right only */
+    position: absolute;
+    top: 0;
+    left: 70px;              /* Width of your sidebar */
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.org-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.org-box {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.org-box img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
