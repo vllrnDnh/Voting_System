@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../includes/db.php';
 $result = mysqli_query($conn, "SELECT id, name FROM organizations WHERE is_visible = 1");
 ?>
 

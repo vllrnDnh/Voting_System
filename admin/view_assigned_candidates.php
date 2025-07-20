@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require '../includes/db.php';
 
 $orgId = $_GET['org_id'] ?? 0;
 if (!$orgId) {
