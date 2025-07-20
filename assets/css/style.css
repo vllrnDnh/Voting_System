@@ -838,11 +838,7 @@ button[type="submit"]{
     }
 }
 
-.login-page .right-pane::before{
-    content:'';
-    position:absolute; inset:0;       /* cover the entire pane          */
-    background:rgba(0,0,0,.35);
-}
+
 
 /* -------------  original contents you already had  ----------------- */
 /* … (leave everything above unchanged) …                              */
