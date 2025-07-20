@@ -81,6 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content:center;
             align-items:center;
         }
+        .image-bg {
+            background-image: url('assets/images/FEU-IT.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
         @media(max-width:860px){.split-wrapper{flex-direction:column;}
                                 .right-pane{padding:60px 0;}}
     </style>
