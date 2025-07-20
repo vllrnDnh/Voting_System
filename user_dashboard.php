@@ -277,6 +277,14 @@ $organizations  = $organizations  ?: '';
 <script>window.onload=()=>alert("✅ Profile updated successfully!");</script>
 <?php endif; ?>
 
+<?php if (isset($_SESSION['vote_success'])): unset($_SESSION['vote_success']); ?>
+<script>
+window.addEventListener('load', () => {
+    alert("🗳️ Your vote has been successfully submitted! Thank you for participating in the election.");
+});
+</script>
+<?php endif; ?>
+
 <div class="container-layout">
     <!-- Sidebar -->
     <aside class="sidebar">

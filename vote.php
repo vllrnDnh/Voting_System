@@ -1,8 +1,15 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    // Process the vote (without saving to database)
+    // You can add database logic here later when needed
+    
+    // Set success flag in session
+    $_SESSION['vote_success'] = true;
+    
+    // Redirect to user dashboard
+    header("Location: user_dashboard.php");
     exit;
 }
 ?>
