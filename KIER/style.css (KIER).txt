@@ -20,6 +20,7 @@ style.css
 
 [ 6:01 ] ; [ fix image size in dashboard ]
 
+!!  1016 - 1020
 
 .org-box img {
     width: 100%;
