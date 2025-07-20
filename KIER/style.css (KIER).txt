@@ -1,6 +1,6 @@
 style.css
 
-
+?? (line no.s may be inaccurate)
 
 !!  268 - 277:
 
@@ -14,3 +14,13 @@ style.css
     padding-top: 24px;
     gap: 20px;
 }
+
+
+=================================================
+
+.org-box img {
+    width: 100%;
+    max-height: 188px;
+    object-fit: contain;
+}
+
