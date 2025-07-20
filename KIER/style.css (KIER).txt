@@ -28,3 +28,20 @@ style.css
     object-fit: contain;
 }
 
+
+================================================
+
+[ fix org images placement once live count is added ] ; [ 6:46 ]
+
+.resume-container {
+    flex-grow: 1;
+    height: 100vh;
+    padding: 0 50px;
+    background: #f4f6fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+=========================================================
