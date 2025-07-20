@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'includes/db.php';
 
 if (!isset($_GET['org_id'])) {
     http_response_code(400);

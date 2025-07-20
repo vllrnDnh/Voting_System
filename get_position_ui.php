@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'includes/db.php';
 
 $orgId = $_GET['org_id'] ?? null;
 if (!$orgId) {

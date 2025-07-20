@@ -1,12 +1,13 @@
 <?php
-require_once 'db.php';
+require_once 'includes/db.php';
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register | TECHVote</title>
+    <title>Register - TECHVote</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 

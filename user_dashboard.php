@@ -1,7 +1,7 @@
 <?php
 /* ── session / db ─────────────────────────────────────────────── */
 session_start();
-require_once 'db.php';
+require_once 'includes/db.php';
 
 if (!isset($_SESSION['username']) || !in_array($_SESSION['role'], ['admin','user'])) {
     header("Location: login.php"); exit;
@@ -44,7 +44,7 @@ $organizations  = $organizations  ?: '';
 <head>
     <meta charset="UTF-8">
     <title><?php echo ucfirst($role); ?> Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         * {
@@ -330,7 +330,7 @@ window.addEventListener('load', () => {
     <div class="resume-container">
      <div class="org-gallery">
     <?php
-    require_once 'db.php';
+    // Database connection is already included at the top
     $query = "SELECT * FROM organizations WHERE is_visible = 1";
     if ($_SESSION['role'] === 'admin') {
         $query = "SELECT * FROM organizations"; // Admins see all, even hidden

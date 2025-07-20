@@ -1,0 +1,40 @@
+# Uploaded files
+uploads/*.png
+uploads/*.jpg
+uploads/*.jpeg
+uploads/*.gif
+uploads/*.webp
+uploads/org_logos/*.png
+uploads/org_logos/*.jpg
+uploads/org_logos/*.jpeg
+uploads/org_logos/*.gif
+
+# Keep directory structure but ignore files
+!uploads/.gitkeep
+!uploads/org_logos/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Log files
+*.log
+error_log
+
+# Cache files
+*.cache

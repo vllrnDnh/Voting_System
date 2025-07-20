@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'includes/db.php';
 session_start();
 $errors = [];
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login | TECHVote</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* ── picture‑2 split layout ───────────────────────────────────────────── */
         .split-wrapper {

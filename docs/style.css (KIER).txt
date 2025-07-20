@@ -1,0 +1,16 @@
+style.css
+
+
+
+!!  268 - 277:
+
+.left { /* Profile Picture sidebar */
+    width: 100%;
+    max-width: 90px;
+    background: #6A9485;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    gap: 20px;
+}
