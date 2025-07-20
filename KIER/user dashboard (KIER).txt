@@ -120,7 +120,7 @@ setInterval(updateCountdown, 1000);
 ----------------NOT NEEDED ; REFERENCE FOR PLACEMENT----------------------------------------------/\/\/\/\/\
 
 
-[ COPY THIS ONE ] ; [ 6:43 ]
+[ COPY THIS ONE ] ; [ 6:43 ] ; [ Add Live VOte Count to User Daashboard ]
 
 
 !!  428 - 524:
